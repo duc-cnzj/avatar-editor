@@ -13,13 +13,13 @@ import _ from "lodash";
 
 const ExportAvatar = ({ avatar }: { avatar: string }) => {
   const handleExport = () => {
-    const element = document.getElementById("exportable");
+    const element = document.getElementById("exportable-avatar");
     if (element) {
       domtoimage
         .toPng(element)
         .then((dataUrl: string) => {
           const link = document.createElement("a");
-          link.download = "exported-image.png";
+          link.download = "头像.png";
           link.href = dataUrl;
           link.click();
         })
@@ -33,7 +33,7 @@ const ExportAvatar = ({ avatar }: { avatar: string }) => {
     <div className="flex flex-col items-center justify-center">
       <a
         href="#"
-        id="exportable"
+        id="exportable-avatar"
         className="p-3 bg-gradient-to-br  from-60% from-red-500 to-indigo-500 rounded-full"
       >
         <img className="rounded-full h-40 w-40" src={avatar} alt="avatar" />
